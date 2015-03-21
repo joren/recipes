@@ -1,0 +1,21 @@
+%h2= @recipe.name
+
+.panel.panel-info
+  .panel-heading
+    Info
+  .panel-body
+    %p Recept voor #{@recipe.people} personen
+    %p Duurt ongeveer #{@recipe.duration}min om klaar te maken
+
+.panel.panel-default
+  .panel-heading
+    %h4 Ingrediënten
+  .panel-body
+    lorem ipsum
+
+.panel.panel-default
+  .panel-heading
+    %h4 Bereiding
+  .panel-body= @recipe.instructions
+
+= link_to 'Terug naar overzicht', :recipes, class: 'btn btn-default btn-sm'
