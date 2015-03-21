@@ -1,0 +1,5 @@
+= form.input :name, label: 'Naam recept'
+= form.input :people, label: 'Aantal mensen'
+= form.input :duration, label: 'Bereidingstijd', wrapper: :group, append: 'min'
+= form.input :instructions
+= form.submit_with_cancel

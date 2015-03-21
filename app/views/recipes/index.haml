@@ -1,0 +1,19 @@
+%h1
+  Recepten
+  %small
+    = link_to 'Nieuw recept', [:new, :recipe], class: 'btn btn-success btn-xs'
+
+%table.table.table-striped
+  %thead
+    %tr
+      %th Naam
+      %th Bereidingstijd
+      %th &nbsp;
+  %tbody
+    - @recipes.each do |recipe|
+      %tr
+        %td= recipe.name
+        %td #{recipe.duration}min
+        %td
+          = link_to 'bekijk', recipe, class: 'btn btn-default btn-xs'
+
