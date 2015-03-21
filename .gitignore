@@ -17,4 +17,4 @@
 /tmp
 
 # custom settings
-config/*.yml
+config/database.yml
