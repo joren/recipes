@@ -8,6 +8,7 @@ gem 'haml-rails', '~> 0.5.1'
 gem 'jquery-rails'
 gem 'mysql2', '~> 0.3.18'
 gem 'sass-rails', '~> 5.0'
+gem 'simple_form', '~> 3.1.0'
 gem 'therubyracer', platforms: :ruby
 gem 'uglifier', '>= 1.3.0'
 
