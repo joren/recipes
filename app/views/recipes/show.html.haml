@@ -1,4 +1,7 @@
-%h2= @recipe.name
+%h2
+  = @recipe.name
+  %small
+    = link_to 'Bewerk', [:edit, @recipe], class: 'btn btn-primary btn-xs'
 
 .panel.panel-info
   .panel-heading

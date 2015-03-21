@@ -1,6 +1,7 @@
-%h2 Voeg een recept toe
+%h2 Bewerk recept #{@recipe.name}
 
 .panel.panel-default
   .panel-body
     = simple_form_for @recipe, html: { class: 'form-horizontal' } do |form|
       = render form
+
