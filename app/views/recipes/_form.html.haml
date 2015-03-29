@@ -2,4 +2,9 @@
 = form.input :people, label: 'Aantal mensen'
 = form.input :duration, label: 'Bereidingstijd', wrapper: :group, append: 'min'
 = form.input :instructions
+= form.fields_for :ingredient_groups do |ig_form|
+  .panel.panel-default
+    .panel-body
+      = ig_form.input :name
+= form.link_to_add 'Voeg een Ingredienten groep toe', :ingredient_groups
 = form.submit_with_cancel

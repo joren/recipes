@@ -14,7 +14,8 @@
   .panel-heading
     %h4 Ingrediënten
   .panel-body
-    lorem ipsum
+    - @recipe.ingredient_groups.each do |ingredient_group|
+      %h5= ingredient_group.name
 
 .panel.panel-default
   .panel-heading

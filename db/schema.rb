@@ -11,7 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150321143153) do
+ActiveRecord::Schema.define(version: 20150329132931) do
+
+  create_table "ingredient_groups", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.integer  "recipe_id",  limit: 4
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  add_index "ingredient_groups", ["recipe_id"], name: "index_ingredient_groups_on_recipe_id", using: :btree
 
   create_table "recipes", force: :cascade do |t|
     t.string   "name",         limit: 255,               null: false
@@ -22,4 +31,5 @@ ActiveRecord::Schema.define(version: 20150321143153) do
     t.datetime "updated_at",                             null: false
   end
 
+  add_foreign_key "ingredient_groups", "recipes"
 end
