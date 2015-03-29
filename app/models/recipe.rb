@@ -5,6 +5,8 @@ class Recipe < ActiveRecord::Base
   validates :instructions, presence: true
 
   has_many :ingredient_groups, dependent: :destroy
+  has_many :links, dependent: :destroy
 
   accepts_nested_attributes_for :ingredient_groups, reject_if: :all_blank, allow_destroy: true
+  accepts_nested_attributes_for :links, reject_if: :all_blank, allow_destroy: true
 end

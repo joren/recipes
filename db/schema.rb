@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150329134445) do
+ActiveRecord::Schema.define(version: 20150329184353) do
 
   create_table "ingredient_groups", force: :cascade do |t|
     t.string   "name",       limit: 255
@@ -32,6 +32,15 @@ ActiveRecord::Schema.define(version: 20150329134445) do
 
   add_index "ingredients", ["ingredient_group_id"], name: "index_ingredients_on_ingredient_group_id", using: :btree
 
+  create_table "links", force: :cascade do |t|
+    t.string   "url",        limit: 255
+    t.integer  "recipe_id",  limit: 4
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  add_index "links", ["recipe_id"], name: "index_links_on_recipe_id", using: :btree
+
   create_table "recipes", force: :cascade do |t|
     t.string   "name",         limit: 255,               null: false
     t.text     "instructions", limit: 65535,             null: false
@@ -43,4 +52,5 @@ ActiveRecord::Schema.define(version: 20150329134445) do
 
   add_foreign_key "ingredient_groups", "recipes"
   add_foreign_key "ingredients", "ingredient_groups"
+  add_foreign_key "links", "recipes"
 end

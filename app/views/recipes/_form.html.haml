@@ -2,6 +2,7 @@
 = form.input :people, label: 'Aantal mensen'
 = form.input :duration, label: 'Bereidingstijd', wrapper: :group, append: 'min'
 = form.input :instructions
+%hr
 = form.fields_for :ingredient_groups do |ig_form|
   .panel.panel-default
     .panel-body
@@ -18,4 +19,16 @@
               %span.input-group-btn= i_form.button_to_remove 'Verwijder', class: 'btn btn-default'
       = ig_form.link_to_add 'Voeg een ingredient toe', :ingredients
 = form.link_to_add 'Voeg een Ingredienten groep toe', :ingredient_groups
+%hr
+%h4 Voeg extra links to
+%p bijvoorbeeld afbeeldingen, een link naar het originele recept
+= form.fields_for :links do |link_form|
+  .row.form-group
+    .col-sm-2
+      = link_form.label :url
+    .col-sm-10
+      .input-group
+        = link_form.text_field :url, placeholder: 'http://dagelijksekost.be/recept/stoofvlees', class: 'form-control'
+        %span.input-group-btn= link_form.button_to_remove 'Verwijder', class: 'btn btn-default'
+= form.link_to_add 'Voeg een link to', :links
 = form.submit_with_cancel
