@@ -25,4 +25,11 @@
     %h4 Bereiding
   .panel-body= Kramdown::Document.new(@recipe.instructions).to_html.html_safe
 
+.panel.panel-default
+  .panel-heading
+    %h4 Links
+  .panel-body
+    - @recipe.links.each do |link|
+      = link_to link.url, link.url, target: '_blank'
+
 = link_to 'Terug naar overzicht', :recipes, class: 'btn btn-default btn-sm'

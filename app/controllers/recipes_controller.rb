@@ -43,6 +43,11 @@ private
       :people,
       :duration,
       :instructions,
+      links_attributes: [
+        :id,
+        :url,
+        :_destroy
+      ],
       ingredient_groups_attributes: [
         :id,
         :name,
