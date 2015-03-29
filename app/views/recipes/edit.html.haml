@@ -2,6 +2,6 @@
 
 .panel.panel-default
   .panel-body
-    = simple_form_for @recipe, html: { class: 'form-horizontal' } do |form|
-      = render form
+    = simple_nested_form_for @recipe, html: { class: 'form-horizontal' } do |form|
+      = render 'form', form: form
 

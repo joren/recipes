@@ -42,7 +42,18 @@ private
       :name,
       :people,
       :duration,
-      :instructions
+      :instructions,
+      ingredient_groups_attributes: [
+        :id,
+        :name,
+        :_destroy,
+        ingredients_attributes: [
+          :id,
+          :name,
+          :quantity,
+          :_destroy
+        ]
+      ]
     )
   end
 end
