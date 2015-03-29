@@ -16,6 +16,9 @@
   .panel-body
     - @recipe.ingredient_groups.each do |ingredient_group|
       %h5= ingredient_group.name
+      %ul
+        - ingredient_group.ingredients.each do |ingredient|
+          %li #{ingredient.quantity} #{ingredient.name}
 
 .panel.panel-default
   .panel-heading

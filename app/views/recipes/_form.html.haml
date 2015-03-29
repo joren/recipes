@@ -5,6 +5,17 @@
 = form.fields_for :ingredient_groups do |ig_form|
   .panel.panel-default
     .panel-body
-      = ig_form.input :name
+      .pull-right= ig_form.link_to_remove 'Verwijder groep'
+      = ig_form.input :name, label: 'Groepnaam', hint: 'tip: maak een groep per deel van het gerecht'
+      %h4 Ingrediënten
+      = ig_form.fields_for :ingredients do |i_form|
+        .row.form-group
+          .col-sm-2
+            = i_form.text_field :quantity, placeholder: 'Hoeveelheid', class: 'form-control'
+          .col-sm-10
+            .input-group
+              = i_form.text_field :name, placeholder: 'Ingredient', class: 'form-control'
+              %span.input-group-btn= i_form.button_to_remove 'Verwijder', class: 'btn btn-default'
+      = ig_form.link_to_add 'Voeg een ingredient toe', :ingredients
 = form.link_to_add 'Voeg een Ingredienten groep toe', :ingredient_groups
 = form.submit_with_cancel
