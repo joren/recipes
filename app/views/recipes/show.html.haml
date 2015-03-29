@@ -23,6 +23,6 @@
 .panel.panel-default
   .panel-heading
     %h4 Bereiding
-  .panel-body= @recipe.instructions
+  .panel-body= Kramdown::Document.new(@recipe.instructions).to_html.html_safe
 
 = link_to 'Terug naar overzicht', :recipes, class: 'btn btn-default btn-sm'
