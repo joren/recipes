@@ -12,7 +12,10 @@
   %tbody
     - @recipes.each do |recipe|
       %tr
-        %td= recipe.name
+        %td
+          = recipe.name
+          - recipe.tag_list.each do |tag|
+            %span.label.label-primary= tag
         %td #{recipe.duration}min
         %td
           = link_to 'bekijk', recipe, class: 'btn btn-default btn-xs'

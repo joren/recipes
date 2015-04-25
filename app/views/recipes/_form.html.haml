@@ -21,6 +21,9 @@
         = ig_form.link_to_add 'Voeg een ingredient toe', :ingredients
 = form.link_to_add 'Voeg een Ingredienten groep toe', :ingredient_groups
 %hr
+%h4 Tags
+= form.input :tag_list, input_html: { value: form.object.tag_list.join(', ') }, hint: 'zet tussen elke tag een komma'
+%hr
 %h4 Voeg extra links to
 %p bijvoorbeeld afbeeldingen, een link naar het originele recept
 = form.fields_for :links do |link_form|

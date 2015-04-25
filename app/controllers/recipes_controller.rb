@@ -43,6 +43,7 @@ private
       :people,
       :duration,
       :instructions,
+      :tag_list,
       links_attributes: [
         :id,
         :url,

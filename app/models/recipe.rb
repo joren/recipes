@@ -1,4 +1,6 @@
 class Recipe < ActiveRecord::Base
+  acts_as_taggable
+
   validates :name, presence: true
   validates :people, presence: true
   validates :duration, presence: true

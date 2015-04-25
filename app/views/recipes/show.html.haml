@@ -1,7 +1,8 @@
 %h2
   = @recipe.name
   %small
-    = link_to 'Bewerk', [:edit, @recipe], class: 'btn btn-primary btn-xs'
+    - @recipe.tag_list.each do |tag|
+      %span.label.label-primary= tag
 
 .panel.panel-info
   .panel-heading
@@ -32,4 +33,5 @@
     - @recipe.links.each do |link|
       = link_to link.url, link.url, target: '_blank'
 
+= link_to 'Bewerk', [:edit, @recipe], class: 'btn btn-primary btn-sm'
 = link_to 'Terug naar overzicht', :recipes, class: 'btn btn-default btn-sm'
