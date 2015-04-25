@@ -34,5 +34,6 @@
     - @recipe.links.each do |link|
       = link_to link.url, link.url, target: '_blank'
 
-= link_to 'Bewerk', [:edit, @recipe], class: 'btn btn-primary btn-sm'
+- if logged_in?
+  = link_to 'Bewerk', [:edit, @recipe], class: 'btn btn-primary btn-sm'
 = link_to 'Terug naar overzicht', :recipes, class: 'btn btn-default btn-sm'
