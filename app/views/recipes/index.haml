@@ -1,15 +1,3 @@
-%h1
-  Recepten
-  - if params[:tag]
-    met tag '#{params[:tag]}'
-    = link_to 'Bekijk alle', :recipes, class: 'small'
-  .pull-right
-    - if logged_in?
-      = link_to 'Nieuw recept', [:new, :recipe], class: 'btn btn-success btn-xs'
-      = link_to 'log out', :logout, class: 'btn btn-primary btn-xs'
-    - else
-      = link_to 'log in', :login, class: 'btn btn-primary btn-xs'
-
 %table.table.table-striped
   %thead
     %tr
