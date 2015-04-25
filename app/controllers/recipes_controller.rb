@@ -2,6 +2,7 @@ class RecipesController < ApplicationController
   before_action :load_recipe, only: [:show, :edit, :update, :destroy]
   def index
     @recipes = Recipe.all
+    @recipes = @recipes.tagged_with(params[:tag]) if params[:tag]
   end
 
   def show

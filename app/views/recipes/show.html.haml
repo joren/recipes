@@ -2,7 +2,8 @@
   = @recipe.name
   %small
     - @recipe.tag_list.each do |tag|
-      %span.label.label-primary= tag
+      = link_to [:recipes, tag: tag] do
+        %span.label.label-primary= tag
 
 .panel.panel-info
   .panel-heading
