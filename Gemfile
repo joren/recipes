@@ -12,6 +12,7 @@ gem 'kramdown', '~> 1.6.0'
 gem 'nested_form', '~> 0.3.2'
 gem 'sass-rails', '~> 5.0'
 gem 'simple_form', '~> 3.1.0'
+gem 'sorcery', '~> 0.9.1'
 gem 'therubyracer', platforms: :ruby
 gem 'uglifier', '>= 1.3.0'
 
