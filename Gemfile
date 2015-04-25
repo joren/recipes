@@ -1,8 +1,9 @@
-ruby '2.2.1'
+ruby '2.2.2'
 source 'https://rubygems.org'
 
 gem 'rails', '4.2.1'
 
+gem 'acts-as-taggable-on', '~> 3.5.0'
 gem 'bootstrap-sass', '~> 3.3.4'
 gem 'coffee-rails', '~> 4.1.0'
 gem 'haml-rails', '~> 0.5.1'
