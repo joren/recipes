@@ -31,8 +31,13 @@
   .panel-heading
     %h4 Links
   .panel-body
-    - @recipe.links.each do |link|
-      = link_to link.url, link.url, target: '_blank'
+    %p
+      - @recipe.links.select(&:image?).each do |image_link|
+        = link_to image_tag(image_link.url, width: 200), image_link.url, target: '_blank'
+    %p
+      %ul
+        - @recipe.links.select { |link| !link.image? }.each do |link|
+          %li= link_to link.url, link.url, target: '_blank'
 
 - if logged_in?
   = link_to 'Bewerk', [:edit, @recipe], class: 'btn btn-primary btn-sm'
