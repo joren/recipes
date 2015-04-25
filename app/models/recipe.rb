@@ -6,6 +6,8 @@ class Recipe < ActiveRecord::Base
   validates :duration, presence: true
   validates :instructions, presence: true
 
+  belongs_to :user
+
   has_many :ingredient_groups, dependent: :destroy
   has_many :links, dependent: :destroy
 
