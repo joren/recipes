@@ -1,6 +1,9 @@
 %h1
   Recepten
-  %small
+  - if params[:tag]
+    met tag '#{params[:tag]}'
+    = link_to 'Bekijk all', :recipes, class: 'small'
+  .pull-right
     = link_to 'Nieuw recept', [:new, :recipe], class: 'btn btn-success btn-xs'
 
 %table.table.table-striped
@@ -12,7 +15,11 @@
   %tbody
     - @recipes.each do |recipe|
       %tr
-        %td= recipe.name
+        %td
+          = recipe.name
+          - recipe.tag_list.each do |tag|
+            = link_to [:recipes, tag: tag] do
+              %span.label.label-primary= tag
         %td #{recipe.duration}min
         %td
           = link_to 'bekijk', recipe, class: 'btn btn-default btn-xs'
