@@ -4,6 +4,6 @@ class User < ActiveRecord::Base
   has_many :recipes
 
   def to_s
-    email
+    name
   end
 end
