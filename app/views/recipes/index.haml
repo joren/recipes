@@ -4,7 +4,11 @@
     met tag '#{params[:tag]}'
     = link_to 'Bekijk alle', :recipes, class: 'small'
   .pull-right
-    = link_to 'Nieuw recept', [:new, :recipe], class: 'btn btn-success btn-xs'
+    - if logged_in?
+      = link_to 'Nieuw recept', [:new, :recipe], class: 'btn btn-success btn-xs'
+      = link_to 'log out', :logout, class: 'btn btn-primary btn-xs'
+    - else
+      = link_to 'log in', :login, class: 'btn btn-primary btn-xs'
 
 %table.table.table-striped
   %thead
@@ -23,4 +27,6 @@
         %td #{recipe.duration}min
         %td
           = link_to 'bekijk', recipe, class: 'btn btn-default btn-xs'
+          - if logged_in?
+            = link_to 'bewerk', [:edit, recipe], class: 'btn btn-default btn-xs'
 

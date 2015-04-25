@@ -1,5 +1,7 @@
 class RecipesController < ApplicationController
   before_action :load_recipe, only: [:show, :edit, :update, :destroy]
+  before_action :require_login, only: [:new, :create, :edit, :update]
+
   def index
     @recipes = Recipe.all
     @recipes = @recipes.tagged_with(params[:tag]) if params[:tag]
