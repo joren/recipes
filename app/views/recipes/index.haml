@@ -2,6 +2,7 @@
   %thead
     %tr
       %th Naam
+      %th &nbsp;
       %th Bereidingstijd
       %th Van
       %th &nbsp;
@@ -10,6 +11,7 @@
       %tr
         %td
           = link_to recipe.name, recipe
+        %td.tags
           - recipe.tag_list.each do |tag|
             = link_to [:recipes, tag: tag] do
               %span.label.label-primary= tag
