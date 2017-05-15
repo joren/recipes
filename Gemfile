@@ -1,7 +1,7 @@
 ruby '2.3.1'
 source 'https://rubygems.org'
 
-gem 'rails', '4.2.1'
+gem 'rails', '4.2.8'
 
 gem 'acts-as-taggable-on', '~> 3.5.0'
 gem 'bootstrap-sass', '~> 3.3.4'
