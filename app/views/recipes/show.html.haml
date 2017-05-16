@@ -8,6 +8,9 @@
 .panel.panel-info
   .panel-heading
     Recept van #{@recipe.user}
+    - if @recipe.weight_wacthers_score > 0
+      .pull-right
+        Weight Watchers: #{@recipe.weight_wacthers_score}
   .panel-body
     %p Recept voor #{@recipe.people} personen
     %p Duurt ongeveer #{@recipe.duration}min om klaar te maken

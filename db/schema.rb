@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170516070928) do
+ActiveRecord::Schema.define(version: 20170516123748) do
 
   create_table "ingredient_groups", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
     t.string   "name"
@@ -38,13 +38,14 @@ ActiveRecord::Schema.define(version: 20170516070928) do
   end
 
   create_table "recipes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
-    t.string   "name",                                   null: false
-    t.text     "instructions", limit: 65535,             null: false
-    t.integer  "people",                     default: 1
-    t.integer  "duration",                   default: 1
-    t.datetime "created_at",                             null: false
-    t.datetime "updated_at",                             null: false
+    t.string   "name",                                            null: false
+    t.text     "instructions",          limit: 65535,             null: false
+    t.integer  "people",                              default: 1
+    t.integer  "duration",                            default: 1
+    t.datetime "created_at",                                      null: false
+    t.datetime "updated_at",                                      null: false
     t.integer  "user_id"
+    t.integer  "weight_wacthers_score",               default: 0
     t.index ["user_id"], name: "index_recipes_on_user_id", using: :btree
   end
 

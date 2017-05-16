@@ -1,6 +1,7 @@
 = form.input :name, label: 'Naam recept'
 = form.input :people, label: 'Aantal mensen'
 = form.input :duration, label: 'Bereidingstijd', wrapper: :group, append: 'min'
+= form.input :weight_wacthers_score, label: "Weight wacthers score"
 = form.input :instructions
 %hr
 = form.fields_for :ingredient_groups do |ig_form|
