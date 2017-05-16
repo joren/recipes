@@ -13,7 +13,7 @@ gem 'nested_form', '~> 0.3.2'
 gem 'libv8', '~> 3.16.14.15'
 gem 'sass-rails', '~> 5.0.6'
 gem 'simple_form', '~> 3.4.0'
-gem 'sorcery', '~> 0.9.1'
+gem 'sorcery', '~> 0.10.3'
 gem 'therubyracer', '~> 0.12.3', platforms: :ruby
 gem 'uglifier', '>= 1.3.0'
 
