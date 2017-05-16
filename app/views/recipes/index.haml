@@ -4,6 +4,7 @@
       %th Naam
       %th &nbsp;
       %th Bereidingstijd
+      %th Weight Watchers score
       %th Van
       %th &nbsp;
   %tbody
@@ -16,6 +17,7 @@
             = link_to [:recipes, tag: tag] do
               %span.label.label-primary= tag
         %td #{recipe.duration}min
+        %td= recipe.weight_wacthers_score > 0 ? recipe.weight_wacthers_score : "N/A"
         %td= recipe.user.name
         %td
           = link_to 'bekijk', recipe, class: 'btn btn-default btn-xs'

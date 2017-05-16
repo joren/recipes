@@ -47,6 +47,7 @@ private
       :duration,
       :instructions,
       :tag_list,
+      :weight_wacthers_score,
       links_attributes: [
         :id,
         :url,
