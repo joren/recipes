@@ -1,7 +1,7 @@
 ruby '2.4.1'
 source 'https://rubygems.org'
 
-gem 'rails', '5.0.3'
+gem 'rails', '5.0.6'
 
 gem 'acts-as-taggable-on', '~> 4.0.0'
 gem 'bootstrap-sass', '~> 3.3.4'
@@ -11,6 +11,7 @@ gem 'jquery-rails', '~> 4.3.1'
 gem 'kramdown', '~> 1.13.2'
 gem 'nested_form', '~> 0.3.2'
 gem 'libv8', '~> 3.16.14.15'
+gem 'pg', '~> 0.21.0'
 gem 'sass-rails', '~> 5.0.6'
 gem 'simple_form', '~> 3.4.0'
 gem 'sorcery', '~> 0.10.3'
@@ -19,12 +20,10 @@ gem 'uglifier', '>= 1.3.0'
 
 group :development, :test do
   gem 'byebug'
-  gem 'mysql2', '~> 0.4.6'
   gem 'spring'
   gem 'web-console', '~> 3.5.1'
 end
 
 group :production do
   gem 'rails_12factor'
-  gem 'pg'
 end

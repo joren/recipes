@@ -5,6 +5,7 @@ class RecipesController < ApplicationController
   def index
     @recipes = Recipe.all
     @recipes = @recipes.tagged_with(params[:tag]) if params[:tag]
+    @dropped_links = DroppedLink.all
   end
 
   def show
