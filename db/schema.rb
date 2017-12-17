@@ -10,9 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170516123748) do
+ActiveRecord::Schema.define(version: 20171215072632) do
 
-  create_table "ingredient_groups", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "dropped_links", force: :cascade do |t|
+    t.string   "url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "ingredient_groups", force: :cascade do |t|
     t.string   "name"
     t.integer  "recipe_id"
     t.datetime "created_at", null: false
@@ -20,7 +29,7 @@ ActiveRecord::Schema.define(version: 20170516123748) do
     t.index ["recipe_id"], name: "index_ingredient_groups_on_recipe_id", using: :btree
   end
 
-  create_table "ingredients", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
+  create_table "ingredients", force: :cascade do |t|
     t.string   "name"
     t.string   "quantity"
     t.integer  "ingredient_group_id"
@@ -29,7 +38,7 @@ ActiveRecord::Schema.define(version: 20170516123748) do
     t.index ["ingredient_group_id"], name: "index_ingredients_on_ingredient_group_id", using: :btree
   end
 
-  create_table "links", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
+  create_table "links", force: :cascade do |t|
     t.string   "url"
     t.integer  "recipe_id"
     t.datetime "created_at", null: false
@@ -37,24 +46,24 @@ ActiveRecord::Schema.define(version: 20170516123748) do
     t.index ["recipe_id"], name: "index_links_on_recipe_id", using: :btree
   end
 
-  create_table "recipes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
-    t.string   "name",                                            null: false
-    t.text     "instructions",          limit: 65535,             null: false
-    t.integer  "people",                              default: 1
-    t.integer  "duration",                            default: 1
-    t.datetime "created_at",                                      null: false
-    t.datetime "updated_at",                                      null: false
+  create_table "recipes", force: :cascade do |t|
+    t.string   "name",                              null: false
+    t.text     "instructions",                      null: false
+    t.integer  "people",                default: 1
+    t.integer  "duration",              default: 1
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
     t.integer  "user_id"
-    t.integer  "weight_wacthers_score",               default: 0
+    t.integer  "weight_wacthers_score", default: 0
     t.index ["user_id"], name: "index_recipes_on_user_id", using: :btree
   end
 
-  create_table "taggings", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
+  create_table "taggings", force: :cascade do |t|
     t.integer  "tag_id"
-    t.integer  "taggable_id"
     t.string   "taggable_type"
-    t.integer  "tagger_id"
+    t.integer  "taggable_id"
     t.string   "tagger_type"
+    t.integer  "tagger_id"
     t.string   "context",       limit: 128
     t.datetime "created_at"
     t.index ["context"], name: "index_taggings_on_context", using: :btree
@@ -68,13 +77,13 @@ ActiveRecord::Schema.define(version: 20170516123748) do
     t.index ["tagger_id"], name: "index_taggings_on_tagger_id", using: :btree
   end
 
-  create_table "tags", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
-    t.string  "name",                       collation: "utf8_bin"
+  create_table "tags", force: :cascade do |t|
+    t.string  "name"
     t.integer "taggings_count", default: 0
     t.index ["name"], name: "index_tags_on_name", unique: true, using: :btree
   end
 
-  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
+  create_table "users", force: :cascade do |t|
     t.string   "email",                        null: false
     t.string   "crypted_password"
     t.string   "salt"
